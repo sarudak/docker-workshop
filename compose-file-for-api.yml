@@ -1,0 +1,16 @@
+version: '2'
+services:
+    api:
+        build: "./hello-api/Dockerfile"
+        container_name: "hello-api"
+        links:
+            - "cdb:cdb"
+        expose:
+            - "8199"
+    cdb:
+        image: "couchdb:latest"
+        container_name: "cdb"
+        expose:
+            - "5984"
+
+
